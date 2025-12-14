@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+public/build/
+
+# Environment
+.env
+
+# Logs / OS
+npm-debug.log
+.DS_Store
