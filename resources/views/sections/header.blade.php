@@ -1,21 +1,22 @@
-<header class="fixed top-0 left-0 w-full z-50 flex justify-center pt-6">
+<header class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
   <button
     id="menu-toggle"
     aria-label="Open menu"
-    class="text-black"
+    class="cursor-pointer bg-transparent border-0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="w-8 h-8 stroke-black"
-      fill="none"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
     >
       <path
+        d="M2 6h20M2 12h20M2 18h20"
+        fill="none"
+        stroke="black"
+        stroke-width="2.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16"
-      />
+/>
     </svg>
   </button>
 </header>
