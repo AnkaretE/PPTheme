@@ -5,7 +5,7 @@
   <div class= "roles-heading p-10 rounded-3xl">
     <h1 class = "text-3xl md:text-4xl font-light leading-tight">
       Hello, my name is Pixie and I am <br>
-      <span class="role-placeholder">a content creator</span>
+      <span class="role-placeholder"></span>
     </h1>
   </div>
 

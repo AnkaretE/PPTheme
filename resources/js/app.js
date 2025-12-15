@@ -21,6 +21,13 @@ roleTriggers.forEach((trigger) => {
     start: 'top center',
     onEnter: () => {
       rolePlaceholder.textContent = trigger.dataset.role;
+        gsap.fromTo(
+          rolePlaceholder,
+          { opacity: 0, y: 8 },
+          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+      );
+
+
     },
     onEnterBack: () => {
       rolePlaceholder.textContent = trigger.dataset.role;
