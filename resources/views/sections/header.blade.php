@@ -6,17 +6,21 @@
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
+      width="150"
+      height="56"
+      viewBox="0 0 120 30"
     >
-      <path
-        d="M2 6h20M2 12h20M2 18h20"
-        fill="none"
-        stroke="black"
-        stroke-width="2.5"
-        stroke-linecap="round"
+
+    <path
+      d="M2 4h116
+        M20 15h80
+        M2 26h116"
+      fill="none"
+      stroke="black"
+      stroke-width="1.5"
+      stroke-linecap="round"
 />
     </svg>
   </button>
 </header>
+

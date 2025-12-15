@@ -1,7 +1,10 @@
+import '../css/app.css'
 console.log('GSAP app.js loaded');
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
