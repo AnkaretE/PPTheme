@@ -27,14 +27,23 @@
 }
 
 body {
-  background-color: #c4b6c1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dec3d2 0%,
+      #bac9e2 50%,
+      #cabde4 100%
+    );
+  background-attachment: fixed;
 }
+
+
 
 wp-block-navigation,
 .wp-block-navigation__responsive-container {
   display: none !important;
 }
 
-.test-tailwind {
-  @apply bg-blue-500 p-10 rounded-xl;
-}
+
+
