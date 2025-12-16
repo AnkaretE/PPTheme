@@ -45,5 +45,32 @@ wp-block-navigation,
   display: none !important;
 }
 
+.role-visuals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.role-visual {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.visual {
+  position: absolute;
+  max-width: 220px;
+  opacity: 0;
+}
+
+/* Example positions */
+.top-left { top: 5vh; left: 5vw; }
+.top-right { top: 5vh; right: 5vw; }
+.bottom-left { bottom: 5vh; left: 5vw; }
+.bottom-right { bottom: 5vh; right: 5vw; }
+.center-left { top: 50%; left: 5vw; transform: translateY(-50%); }
+.center-right { top: 50%; right: 5vw; transform: translateY(-50%); }
+
 
 

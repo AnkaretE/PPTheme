@@ -9,6 +9,16 @@
     </h1>
   </div>
 
+  <div class="role-visuals">
+  <div class="role-visual" data-role="a content creator">
+   <img src="/wp-content/themes/PPTheme/public\images\ContentCreator1.jpg" class="visual top-left" />
+  </div>
+
+  <div class="role-visual" data-role="an educator">
+    <img src="/wp-content/themes/PPTheme/public\images\Educator1.jpg" class="visual top-right" />
+  </div>
+</div>
+
   <div class="role-triggers">
     <div class="role-trigger" data-role="a content creator"></div>
     <div class="role-trigger" data-role="an educator"></div>

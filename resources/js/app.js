@@ -10,7 +10,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 const rolePlaceholder = document.querySelector('.role-placeholder');
 const roleTriggers = document.querySelectorAll('.role-trigger');
+const visualGroups = document.querySelectorAll('.role-visual');
 
+
+const showVisualsForRole = (role) => {
+  visualGroups.forEach((group) => {
+    const matches = group.dataset.role === role;
+
+    gsap.to(group, {
+      opacity: matches ? 1 : 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    });
+
+    const visuals = group.querySelectorAll('.visual');
+
+    if (matches) {
+      gsap.fromTo(
+        visuals,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+        }
+      );
+    }
+  });
+};
 if (!rolePlaceholder || !roleTriggers.length) {
   console.warn('Roles not found');
 }
@@ -21,6 +50,7 @@ roleTriggers.forEach((trigger) => {
     start: 'top center',
     onEnter: () => {
       rolePlaceholder.textContent = trigger.dataset.role;
+      showVisualsForRole(trigger.dataset.role);
         gsap.fromTo(
           rolePlaceholder,
           { opacity: 0, y: 8 },
@@ -31,6 +61,7 @@ roleTriggers.forEach((trigger) => {
     },
     onEnterBack: () => {
       rolePlaceholder.textContent = trigger.dataset.role;
+      showVisualsForRole(trigger.dataset.role);
     },
   });
 });
@@ -43,4 +74,6 @@ if (toggle && menu) {
     menu.classList.toggle('hidden');
   });
 }
+
+
 
