@@ -3,6 +3,7 @@
 @section('content')
 <div class="roles-heading p-10 rounded-3xl">
   <h1 class="text-3xl md:text-4xl font-light leading-tight text-center">
+    <span class="static-text">
     Hello, my name is Pixie and I am <br>
     <span class="role-placeholder"></span>
   </h1>

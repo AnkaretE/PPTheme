@@ -65,6 +65,9 @@ wp-block-navigation,
   height: auto;
 }
 
+.static-text {
+  color: #484D59; /* replace with your hex */
+}
 
 
 
