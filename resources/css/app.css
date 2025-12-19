@@ -21,10 +21,12 @@
 
 .role-triggers {
   margin-top: 20vh;
+  height: calc(5 * 120vh);
 }
 
+
 .role-trigger {
-  height: 80vh;
+  height: 120vh;
 }
 
 body {
@@ -48,7 +50,7 @@ wp-block-navigation,
 
 .role-visuals {
   position: relative;
-  margin-top: 7rem;
+  margin-top: 9rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -61,7 +63,7 @@ wp-block-navigation,
 }
 
 .visual {
-  max-width: min(80vw, 750px);
+  max-width: min(80vw, 800px);
   height: auto;
 }
 
@@ -69,6 +71,73 @@ wp-block-navigation,
   color: #484D59; /* replace with your hex */
 }
 
+.nav-link {
+  font-size: 1.2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+  color: #484D59; 
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-divider {
+  opacity: 0.4;
+}
 
 
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+}
 
+/* Base logo */
+.logo-base {
+  height: 6.5rem;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fairy fill: perfectly aligned, never moves */
+.fairy-fill {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: scale(0.72); /* 👈 tweak this number */
+  transform-origin: center;
+
+  /* Color */
+  filter: drop-shadow(0 0 0 gold);
+
+  /* Start hidden */
+  opacity: 0;
+
+  /* Gradient mask — THIS fixes your problem */
+  -webkit-mask-image: linear-gradient(
+    to top,
+    black 0%,
+    black 0%,
+    transparent 0%
+  );
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+
+  transition:
+    opacity 0.2s ease,
+    -webkit-mask-position 1.2s ease;
+}
+
+nav:has(.nav-link:hover) .fairy-fill {
+  opacity: 1;
+
+  -webkit-mask-image: linear-gradient(
+    to top,
+    black 100%,
+    black 100%,
+    transparent 100%
+  );
+}
