@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="roles-heading p-10 rounded-3xl">
   <h1 class="text-3xl md:text-4xl font-light leading-tight text-center">
     <span class="static-text">
@@ -9,6 +10,14 @@
   </h1>
 
   <div class="role-visuals">
+
+  <img
+    src="/wp-content/themes/PPTheme/public/images/rectangle.png"
+    alt=""
+    class="visual-bg"
+    aria-hidden="true"
+  />
+
     <div class="role-visual" data-role="a content creator">
       <img
         src="/wp-content/themes/PPTheme/public/images/contentCreator.png"

@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
 
-.roles-wrapper {
-  padding: 20vh 0;
-}
+
 
 .roles-heading {
   position: fixed;
@@ -20,7 +18,7 @@
 }
 
 .role-triggers {
-  margin-top: 20vh;
+  
   height: calc(5 * 120vh);
 }
 
@@ -57,14 +55,32 @@ wp-block-navigation,
   align-items: center;
 }
 
+.visual-bg {
+  position: absolute;
+  z-index: 0;
+
+  width: min(120vw, 800px);
+  max-width: 1500px;
+  height: auto;
+
+  /* Optional polish */
+  pointer-events: none;
+
+  transform: translateY(0rem);
+}
+
+
+
 .role-visual {
   position: absolute;
+  z-index: 1;
   opacity: 0;
 }
 
 .visual {
   max-width: min(80vw, 800px);
   height: auto;
+  transform: translateY(-0.5rem);
 }
 
 .static-text {
@@ -102,21 +118,19 @@ wp-block-navigation,
   z-index: 2;
 }
 
+
 /* Fairy fill: perfectly aligned, never moves */
 .fairy-fill {
   position: absolute;
   inset: 0;
   z-index: 1;
-  transform: scale(0.72); /* 👈 tweak this number */
+
+  transform: scale(0.72);
   transform-origin: center;
 
-  /* Color */
-  filter: drop-shadow(0 0 0 gold);
-
-  /* Start hidden */
   opacity: 0;
 
-  /* Gradient mask — THIS fixes your problem */
+  /* Mask stays */
   -webkit-mask-image: linear-gradient(
     to top,
     black 0%,
@@ -131,8 +145,11 @@ wp-block-navigation,
     -webkit-mask-position 1.2s ease;
 }
 
+
+
+
 nav:has(.nav-link:hover) .fairy-fill {
-  opacity: 1;
+  
 
   -webkit-mask-image: linear-gradient(
     to top,
@@ -140,4 +157,20 @@ nav:has(.nav-link:hover) .fairy-fill {
     black 100%,
     transparent 100%
   );
+}
+
+nav:has(.nav-link[data-fairy="pink"]:hover) .fairy-pink {
+  opacity: 1;
+}
+
+nav:has(.nav-link[data-fairy="blue"]:hover) .fairy-blue {
+  opacity: 1;
+}
+
+nav:has(.nav-link[data-fairy="purple"]:hover) .fairy-purple {
+  opacity: 1;
+}
+
+nav:has(.nav-link[data-fairy="violet"]:hover) .fairy-violet {
+  opacity: 1;
 }
