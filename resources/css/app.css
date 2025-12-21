@@ -174,3 +174,8 @@ nav:has(.nav-link[data-fairy="purple"]:hover) .fairy-purple {
 nav:has(.nav-link[data-fairy="violet"]:hover) .fairy-violet {
   opacity: 1;
 }
+
+.role-placeholder {
+  font-weight: 400; /* bold */
+}
+
