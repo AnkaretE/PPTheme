@@ -228,28 +228,10 @@ header {
   background: rgba(255, 221, 233, 0.461);
 }
 
-.portfolio-layout {
-.portfolio-layout {
-  min-height: 100vh;
-  display: grid;
 
-  grid-template-columns: 1fr auto 1fr;
-  gap: 4rem;
-
-  align-items: center;
-}
-
-}
 
 /* Buttons */
-.portfolio-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 
-  align-items: center;
-  transform: translateY(10rem); /* 👈 adjust this value */
-}
 
 
 .portfolio-btn {
@@ -304,12 +286,9 @@ header {
   align-items: center;
 }
 
-.portfolio-image {
-  justify-content: flex-end;
-}
 
 .portfolio-text {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .wwm-btn {
@@ -323,4 +302,48 @@ header {
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
+}
+
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: min(80vw, 300px);
+}
+
+.slide {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.is-active {
+  opacity: 1;
+  position: relative;
+}
+
+.portfolio-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.portfolio-image {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 6rem;
+}
+
+.portfolio-buttons {
+  align-self: flex-start;
+  margin-top: 10rem; /* whatever it was before */
 }
