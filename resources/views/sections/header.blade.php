@@ -1,8 +1,8 @@
-<header class="fixed top-0 left-0 w-full z-50 px-10 py-2">
-  <nav class="grid grid-cols-3 items-center">
+<header class="fixed top-8 left-0 w-full z-50 px-10">
+  <nav class="grid grid-cols-3 items-center h-20">
 
     <!-- LEFT LINKS -->
-    <div class="flex justify-end gap-6">
+    <div class="flex justify-end gap-8">
       <a href="/about" class="nav-link" data-fairy="purple">About</a>
       <span class="nav-divider">|</span>
       <a href="/portfolio" class="nav-link" data-fairy="violet">Portfolio</a>
@@ -26,7 +26,7 @@
 
 
     <!-- RIGHT LINKS -->
-    <div class="flex justify-start gap-6">
+    <div class="flex justify-start gap-8">
       <a href="/shop" class="nav-link" data-fairy="pink">Shop</a>
       <span class="nav-divider">|</span>
       <a href="/contact" class="nav-link" data-fairy="blue">Contact</a>

@@ -66,6 +66,28 @@ roleTriggers.forEach((trigger) => {
   });
 });
 
+const buttons = document.querySelectorAll('.portfolio-btn');
+const panels = document.querySelectorAll('.portfolio-panel');
+
+buttons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.target;
+
+    // buttons
+    buttons.forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+
+    // panels
+    panels.forEach(panel => {
+      panel.classList.toggle(
+        'is-active',
+        panel.dataset.panel === target
+      );
+    });
+  });
+});
+
+
 
 
 
