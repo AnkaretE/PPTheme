@@ -14,6 +14,7 @@
     <button class="portfolio-btn" data-target="education">Education</button>
     <button class="portfolio-btn" data-target="modelling">Modelling</button>
     <button class="portfolio-btn" data-target="consultancy">Consultancy</button>
+    <button class="wwm-btn" data-target="consultancy">Work with me</button>
   </div>
 
   <!-- RIGHT: text -->
