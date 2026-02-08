@@ -295,7 +295,7 @@ header {
     display: inline-block;
     padding: 0.75rem 2rem;
     border-radius: 9999px;         /* pill shape */
-    border: 1px solid rgba(255, 221, 233, 0.461); /* pink border */
+    
     background: rgba(255, 221, 233, 0.2);         /* light pink background */
     color: #484D59;                /* grey text */
     font-size: 1.5rem;
@@ -305,7 +305,7 @@ header {
     cursor: pointer;
     text-decoration: none;         /* remove underline */
     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 /* Hover effect: just lift and slightly darker background */
@@ -362,7 +362,7 @@ header {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -370,6 +370,7 @@ header {
   display: flex;
   justify-content: flex-start;
   margin-top: 4rem;
+  
 }
 
 .portfolio-buttons {
@@ -414,11 +415,22 @@ header {
 #slideshow-container .slide {
     width: 100%;
     height: auto;
-    border-radius: 20px; /* curved corners */
-    border: 20px solid rgba(255, 221, 233, 0.461); /* light pink border */
+    border-radius: 20px;                       /* curved corners */
+    border: 10px solid#f2d2f2;                
+    background: transparent;                   /* ensure inside is transparent */
     object-fit: cover;
     transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }
+
+#slideshow-container .slide.is-active {
+    opacity: 1;
+    position: relative;
+}
+
 
 
 /* Only the active slide is visible */
@@ -452,3 +464,27 @@ html, body {
 .portfolio-text, .portfolio-buttons {
     margin-bottom: 0;
 }
+
+.portfolio-text {
+    justify-content: flex-start;
+    text-align: left;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #484D59;
+    padding-left: 2rem; 
+    padding-right: 4rem;
+}
+
+.portfolio-text ul {
+    padding-left: 1rem;
+    margin: 0;
+    list-style-type: disc;
+}
+
+.portfolio-text li {
+    margin-bottom: 0.75rem;
+}
+
+

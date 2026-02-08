@@ -53,11 +53,33 @@ const slideshows = {
 
 
 const textPanels = {
-    content: "<h2>Content Creation</h2><p>Some text about content creation…</p>",
-    education: "<h2>Education</h2><p>Some text about education…</p>",
-    modelling: "<h2>Modelling</h2><p>Description here…</p>",
-    consultancy: "<h2>Consultancy</h2><p>Description here…</p>"
+    content: `
+        <ul>
+            <li>Designed social media campaigns lalala anything can go here, lorem impsum. </li>
+            <li>Created content for multiple platforms, I like rainbows, lalala</li>
+            <li>Managed editorial calendar, testing this out.</li>
+        </ul>
+    `,
+    education: `
+        <ul>
+            <li>Graduated from XYZ University</li>
+            <li>Mastered Digital Marketing</li>
+        </ul>
+    `,
+    modelling: `
+        <ul>
+            <li>Worked with ABC Agency</li>
+            <li>Featured in Magazine XYZ</li>
+        </ul>
+    `,
+    consultancy: `
+        <ul>
+            <li>Advised multiple startups</li>
+            <li>Specialized in Social Media Strategy</li>
+        </ul>
+    `
 };
+
 
 
 /* ---------------------
