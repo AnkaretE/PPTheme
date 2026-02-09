@@ -416,7 +416,7 @@ header {
     width: 100%;
     height: auto;
     border-radius: 20px;                       /* curved corners */
-    border: 10px solid#f2d2f2;                
+                  
     background: transparent;                   /* ensure inside is transparent */
     object-fit: cover;
     transition: opacity 0.5s ease;
@@ -486,5 +486,29 @@ html, body {
 .portfolio-text li {
     margin-bottom: 0.75rem;
 }
+
+.portfolio-bottom-border {
+    position: absolute;             /* sits over background, behind content */
+    bottom: 0;                      /* flush with bottom of portfolio-layout */
+    left: 0;
+    width: 100vw;                   /* spans full viewport width */
+    height: 120px;                  /* adjust to match your PNG */
+    
+    background-image: url('/wp-content/themes/PPTheme/public/images/border3.PNG');
+    background-repeat: no-repeat;
+    background-size: 100% auto;     /* stretch width, keep height ratio */
+    background-position: bottom;
+    padding-bottom: 25%; 
+    z-index: -1;                      /* behind content but above body background */
+    pointer-events: none;           /* so clicks pass through */
+
+    opacity: 0.8;
+    
+}
+
+
+
+
+
 
 

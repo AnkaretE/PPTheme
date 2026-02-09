@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="portfolio-layout">
 
     <!-- LEFT -->
@@ -26,6 +27,10 @@
     </div>
 
 </div>
+
+
+<!-- ⭐ Bottom border PNG -->
+<div class="portfolio-bottom-border"></div>
 
 <script>
 /* ---------------------
@@ -110,4 +115,6 @@ document.querySelector('.portfolio-btn.is-active').click();
 
 </script>
 
+
 @endsection
+
