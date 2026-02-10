@@ -506,7 +506,18 @@ html, body {
     
 }
 
+#lottie-container {
+  position: fixed;     /* always fills the screen */
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 100vh;
+  overflow: hidden;    /* prevents scroll */
+  pointer-events: none;
+  z-index: -1;         /* behind everything */
+  
 
+}
 
 
 
