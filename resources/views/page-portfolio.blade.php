@@ -121,24 +121,49 @@ document.querySelector('.portfolio-btn.is-active').click();
 ></script>
 
 <div id="lottie-container">
-<dotlottie-wc
-  src="https://lottie.host/2f9694f3-bc13-44df-894b-b322a3765cb4/7nySoubvrx.lottie"
-  style="
-    position: absolute;
-    top: 175px;           /* small nudge to remove bottom scroll */
-    
-    width: 100%;
-    height: 100%;        /* exactly full viewport height */
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: -1;
-    object-fit: cover;    /* fills width/height without gaps */
-    transform: scale(1.2); 
-    
-  "
-  autoplay
-  loop
-></dotlottie-wc>
+  <dotlottie-wc
+  autoplay="false"
+    id="geese-animation"
+    src="https://lottie.host/2f9694f3-bc13-44df-894b-b322a3765cb4/7nySoubvrx.lottie"
+
+    style="
+      position: absolute;
+      top: 175px;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: -1;
+      object-fit: cover;
+      transform: scale(1.2);
+    "
+  ></dotlottie-wc>
 </div>
+
+<script>
+    console.log('Setting up DotLottie animation...');
+const dotLottieElement = document.getElementById('geese-animation');
+
+// Make sure the code runs after the element is ready
+dotLottieElement.addEventListener('ready', () => {
+  const anim = dotLottieElement.dotLottie;
+
+  // Safety check
+  if (!anim) {
+    console.error('DotLottie object not ready!');
+    return;
+  }
+
+  // Play once
+  anim.loop = false;
+  anim.play();
+
+  anim.addEventListener('complete', () => {
+    console.log('Animation completed once');
+  });
+});
+</script>
+
+
 @endsection
 
