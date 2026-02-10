@@ -141,28 +141,21 @@ document.querySelector('.portfolio-btn.is-active').click();
 </div>
 
 <script>
-    console.log('Setting up DotLottie animation...');
 const dotLottieElement = document.getElementById('geese-animation');
 
-// Make sure the code runs after the element is ready
-dotLottieElement.addEventListener('ready', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const anim = dotLottieElement.dotLottie;
 
-  // Safety check
-  if (!anim) {
-    console.error('DotLottie object not ready!');
-    return;
-  }
-
-  // Play once
-  anim.loop = false;
-  anim.play();
-
-  anim.addEventListener('complete', () => {
-    console.log('Animation completed once');
+  // Attach click listeners AFTER animation is ready
+  document.querySelectorAll('.portfolio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      anim.loop = false;   // optional — remove if you want looping
+      anim.play();         // start animation on every click
+    });
   });
 });
 </script>
+
 
 
 @endsection
