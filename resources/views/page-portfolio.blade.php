@@ -115,6 +115,28 @@ document.querySelector('.portfolio-btn.is-active').click();
 
 </script>
 
+<script
+  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+  type="module"
+></script>
+
+<dotlottie-wc
+  src="https://lottie.host/2f9694f3-bc13-44df-894b-b322a3765cb4/7nySoubvrx.lottie"
+  style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;       /* full viewport width */
+    height: 120vh;      /* full viewport height */
+    transform: translateY(-20px); /* adjust 5px as needed */
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: -1;
+    object-fit: cover; 
+  "
+  autoplay
+  loop
+></dotlottie-wc>
 
 @endsection
 
