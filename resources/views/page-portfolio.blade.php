@@ -63,24 +63,32 @@ const textPanels = {
             <li>Designed social media campaigns lalala anything can go here, lorem impsum. </li>
             <li>Created content for multiple platforms, I like rainbows, lalala</li>
             <li>Managed editorial calendar, testing this out.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</li>
+            
         </ul>
     `,
     education: `
         <ul>
             <li>Graduated from XYZ University</li>
             <li>Mastered Digital Marketing</li>
+            <li>Conducted workshops on Content Creation</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</li>
         </ul>
     `,
     modelling: `
         <ul>
             <li>Worked with ABC Agency</li>
             <li>Featured in Magazine XYZ</li>
+            <li>Participated in Fashion Week 2023</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</li>
         </ul>
     `,
     consultancy: `
         <ul>
             <li>Advised multiple startups</li>
             <li>Specialized in Social Media Strategy</li>
+            <li>Helped brands grow their online presence</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</li>
         </ul>
     `
 };
@@ -136,6 +144,7 @@ document.querySelector('.portfolio-btn.is-active').click();
       z-index: -1;
       object-fit: cover;
       transform: scale(1.2);
+      z-index: -2
     "
   ></dotlottie-wc>
 </div>
