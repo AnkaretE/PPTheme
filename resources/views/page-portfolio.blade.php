@@ -6,9 +6,17 @@
 <div class="portfolio-layout">
 
     <!-- LEFT -->
-    <div class="portfolio-image">
-        <div id="slideshow-container"></div>
-    </div>
+<div class="portfolio-image">
+  <div id="slideshow-container"></div>
+
+  <!-- Accessible controls centered below -->
+  <div class="slideshow-controls">
+    <button id="prev-slide" aria-label="Previous slide"><</button>
+    <button id="next-slide" aria-label="Next slide">></button>
+  </div>
+</div>
+
+
 
     <!-- CENTER -->
     <div class="portfolio-buttons">
@@ -185,6 +193,58 @@ document.querySelectorAll(".portfolio-btn").forEach(btn => {
 });
 </script>
 
+<script>
 
+// Keep track of current slideshow and slide
+let currentSlideshow = 'content';
+let currentSlide = 0;
+
+const container = document.getElementById("slideshow-container");
+
+function renderSlideshow(id) {
+  currentSlideshow = id;
+  currentSlide = 0;
+
+  container.innerHTML = slideshows[id]
+    .map((src, index) => `<img src="${src}" class="slide${index === 0 ? ' is-active' : ''}" />`)
+    .join("");
+
+  document.getElementById("text-container").innerHTML = textPanels[id];
+}
+
+// Show next slide
+function showSlide(offset) {
+  const slides = container.querySelectorAll("img");
+  if (!slides.length) return;
+
+  slides[currentSlide].classList.remove("is-active");
+  currentSlide = (currentSlide + offset + slides.length) % slides.length;
+  slides[currentSlide].classList.add("is-active");
+}
+
+// Button clicks to change content
+document.querySelectorAll('.portfolio-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    renderSlideshow(this.dataset.target);
+
+    // Update button styles
+    document.querySelectorAll('.portfolio-btn').forEach(b => b.classList.remove('is-active'));
+    this.classList.add('is-active');
+  });
+});
+
+// Keyboard accessibility
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') showSlide(1);
+  if (e.key === 'ArrowLeft') showSlide(-1);
+});
+
+// Next/Prev buttons
+document.getElementById('next-slide').addEventListener('click', () => showSlide(1));
+document.getElementById('prev-slide').addEventListener('click', () => showSlide(-1));
+
+// Load default section
+renderSlideshow('content');
+</script>
 @endsection
 

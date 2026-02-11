@@ -455,6 +455,9 @@ header {
 
 .portfolio-image {
     min-height: 500px; /* or 450px, 550px - adjust to taste */
+    height: 500px;
+    position: relative; 
+
 }
 
 .portfolio-layout {
@@ -528,12 +531,36 @@ html, body {
   overflow: hidden;    /* prevents scroll */
   pointer-events: none;
     z-index: -2;         /* behind everything */
-  
-   
-    
-  
 
 }
+
+.slideshow-controls {
+  position: absolute;      /* position inside the container */
+  margin-bottom: 50px;
+  margin-left: 10px;
+  bottom: 10px;            /* distance from bottom */
+  left: 50%;               /* center horizontally */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.slideshow-controls button {
+  background: transparent;
+  color: black;
+  cursor: pointer;
+  padding: 0rem 1rem;            /* vertical | horizontal */
+  font-size: 1.5rem;             /* optional: make arrow/text bigger */
+  border: orangered 2px solid;
+  z-index: 20;
+}
+
+.slideshow-controls button:hover,
+.slideshow-controls button:focus {
+  background: rgba(0,0,0,0.1);
+  outline: none;
+}
+
 
 
 
