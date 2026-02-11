@@ -128,66 +128,62 @@ document.querySelector('.portfolio-btn.is-active').click();
   type="module"
 ></script>
 
-<div id="lottie-container"
-style="
-  position: fixed;     /* always fills the screen */
-  top: 0;
-  left: 0;
-  width: 110vw;
-  height: 100vh;
-  overflow: hidden;    /* prevents scroll */
-  pointer-events: none;
-  z-index: -2;         /* behind everything */
-  opacity: 0.8;
-  "
->
-  <dotlottie-wc
-  autoplay="false"
-    id="geese-animation"
-    src="https://lottie.host/2f9694f3-bc13-44df-894b-b322a3765cb4/7nySoubvrx.lottie"
 
-    style="
-    
-      position: absolute;
-      top: 175px;
-      width: 100%;
-      height: 100%;
-   
-      pointer-events: none;
-      z-index: -1;
-      object-fit: cover;
-      transform: scale(1.2);
-      z-index: -2
+<div id="lottie-container"></div>
 
-    "
-  ></dotlottie-wc>
-</div>
+<script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"></script>
+
 <script>
- const wrapper = document.getElementById("lottie-container");
- </script>
-<script>
-const dotLottieElement = document.getElementById('geese-animation');
- 
-document.addEventListener("DOMContentLoaded", () => {
-  
-  const anim = dotLottieElement.dotLottie;
-  wrapper.style.opacity = 0.8; // show animation
-  // Attach click listeners AFTER animation is ready
-  document.querySelectorAll('.portfolio-btn').forEach(btn => {
-    btn.addEventListener('click', () => {   
-    anim.loop = false;   // optional — remove if you want looping
-      anim.stop();
-      anim.play();         // start animation on every click
-      
-      setTimeout(() => {
-          anim.stop();
-        }, 4000);
-     
-    });
+function playLottieAnimation() {
+  const container = document.getElementById("lottie-container");
+
+  // Clear previous animation
+  container.innerHTML = "";
+
+  // Insert animation with autoplay=false
+  const animHtml = `
+    <dotlottie-wc
+      id="geese-animation"
+      src="https://lottie.host/5153ca70-4597-4ff9-87c7-4c077083c5ee/hVPrJixgnh.lottie"
+      autoplay="false"
+      style="
+        position: absolute;
+        top: 175px;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        object-fit: cover;
+        transform: scale(1.2);
+        z-index: -2;
+      "
+    ></dotlottie-wc>
+  `;
+  container.innerHTML = animHtml;
+
+  const element = document.getElementById("geese-animation");
+
+  // Wait for ready to ensure the animation is fully loaded
+  const startAnimation = () => {
+    const anim = element.dotLottie;
+    if (!anim) return; // not ready yet
+
+  };
+
+  if (element.dotLottie) {
+    // already initialized
+    startAnimation();
+  } else {
+    element.addEventListener("ready", startAnimation);
+  }
+}
+
+// Trigger on button click
+document.querySelectorAll(".portfolio-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    playLottieAnimation();
   });
 });
 </script>
-
 
 
 @endsection
