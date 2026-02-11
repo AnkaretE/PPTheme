@@ -507,7 +507,7 @@ html, body {
     width: 100vw;                   /* spans full viewport width */
     height: 120px;                  /* adjust to match your PNG */
     
-    background-image: url('/wp-content/themes/PPTheme/public/images/border3.PNG');
+    background-image: url('public\images\border3.PNG');
     background-repeat: no-repeat;
     background-size: 100% auto;     /* stretch width, keep height ratio */
     background-position: bottom;
