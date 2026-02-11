@@ -528,6 +528,9 @@ html, body {
   overflow: hidden;    /* prevents scroll */
   pointer-events: none;
     z-index: -2;         /* behind everything */
+    opacity: 0;
+   
+    
   
 
 }

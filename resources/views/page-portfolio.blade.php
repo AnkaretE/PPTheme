@@ -128,38 +128,61 @@ document.querySelector('.portfolio-btn.is-active').click();
   type="module"
 ></script>
 
-<div id="lottie-container">
+<div id="lottie-container"
+style="
+  position: fixed;     /* always fills the screen */
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 100vh;
+  overflow: hidden;    /* prevents scroll */
+  pointer-events: none;
+  z-index: -2;         /* behind everything */
+  opacity: 0.8;
+  "
+>
   <dotlottie-wc
   autoplay="false"
     id="geese-animation"
     src="https://lottie.host/2f9694f3-bc13-44df-894b-b322a3765cb4/7nySoubvrx.lottie"
 
     style="
+    
       position: absolute;
       top: 175px;
       width: 100%;
       height: 100%;
-      opacity: 0.8;
+   
       pointer-events: none;
       z-index: -1;
       object-fit: cover;
       transform: scale(1.2);
       z-index: -2
+
     "
   ></dotlottie-wc>
 </div>
-
+<script>
+ const wrapper = document.getElementById("lottie-container");
+ </script>
 <script>
 const dotLottieElement = document.getElementById('geese-animation');
-
+ 
 document.addEventListener("DOMContentLoaded", () => {
+  
   const anim = dotLottieElement.dotLottie;
-
+  wrapper.style.opacity = 0.8; // show animation
   // Attach click listeners AFTER animation is ready
   document.querySelectorAll('.portfolio-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      anim.loop = false;   // optional — remove if you want looping
+    btn.addEventListener('click', () => {   
+    anim.loop = false;   // optional — remove if you want looping
+      anim.stop();
       anim.play();         // start animation on every click
+      
+      setTimeout(() => {
+          anim.stop();
+        }, 4000);
+     
     });
   });
 });
