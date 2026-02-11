@@ -7,14 +7,16 @@
 
     <!-- LEFT -->
 <div class="portfolio-image">
-  <div id="slideshow-container"></div>
-
-  <!-- Accessible controls centered below -->
-  <div class="slideshow-controls">
-    <button id="prev-slide" aria-label="Previous slide"><</button>
-    <button id="next-slide" aria-label="Next slide">></button>
-  </div>
+    <!-- Slideshow with arrows -->
+    <div class="slideshow-wrapper">
+        <button class="slideshow-arrow prev">&#10094;</button> <!-- left arrow -->
+        
+        <div id="slideshow-container"></div> <!-- your existing slides go here -->
+        
+        <button class="slideshow-arrow next">&#10095;</button> <!-- right arrow -->
+    </div>
 </div>
+
 
 
 
@@ -102,32 +104,51 @@ const textPanels = {
 };
 
 
+</script>
 
-/* ---------------------
-   BUTTON CLICK LOGIC
-----------------------*/
+<script>
+// Initialize default slides WITHOUT triggering Lottie
+function loadDefaultSection() {
+  const defaultId = document.querySelector('.portfolio-btn.is-active').dataset.target;
 
+  const container = document.getElementById("slideshow-container");
+  container.innerHTML = slideshows[defaultId]
+    .map((src, index) => `<img src="${src}" class="slide${index === 0 ? ' is-active' : ''}">`)
+    .join("");
+
+  document.getElementById("text-container").innerHTML = textPanels[defaultId];
+
+  // Re-init slideshow
+  initSlideshow();
+}
+
+// Only run this on page load
+loadDefaultSection();
+
+// User clicks now trigger Lottie
 document.querySelectorAll('.portfolio-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const id = this.dataset.target;
+  btn.addEventListener('click', function () {
+    const id = this.dataset.target;
 
-        // update slideshow
-        const container = document.getElementById("slideshow-container");
-        container.innerHTML = slideshows[id]
-            .map((src, index) => `<img src="${src}" class="slide${index === 0 ? ' is-active' : ''}">`)
-            .join("");
+    const container = document.getElementById("slideshow-container");
+    container.innerHTML = slideshows[id]
+      .map((src, index) => `<img src="${src}" class="slide${index === 0 ? ' is-active' : ''}">`)
+      .join("");
 
-        // update text
-        document.getElementById("text-container").innerHTML = textPanels[id];
+    document.getElementById("text-container").innerHTML = textPanels[id];
 
-        // Update button styles
-        document.querySelectorAll('.portfolio-btn').forEach(b => b.classList.remove('is-active'));
-        this.classList.add('is-active');
-    });
+    document.querySelectorAll('.portfolio-btn').forEach(b => b.classList.remove('is-active'));
+    this.classList.add('is-active');
+
+    initSlideshow();
+
+    // ONLY play Lottie when user clicks
+    playLottieAnimation();
+  });
 });
 
-// Load default section (Content Creation)
-document.querySelector('.portfolio-btn.is-active').click();
+
+
 
 </script>
 
@@ -135,6 +156,7 @@ document.querySelector('.portfolio-btn.is-active').click();
   src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
   type="module"
 ></script>
+
 
 
 <div id="lottie-container"></div>
@@ -194,57 +216,58 @@ document.querySelectorAll(".portfolio-btn").forEach(btn => {
 </script>
 
 <script>
-
-// Keep track of current slideshow and slide
-let currentSlideshow = 'content';
 let currentSlide = 0;
+let slides = [];
 
-const container = document.getElementById("slideshow-container");
+function showSlide(index) {
+  slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+  currentSlide = index;
+}
 
-function renderSlideshow(id) {
-  currentSlideshow = id;
+function initSlideshow() {
+  slides = document.querySelectorAll('#slideshow-container .slide');
   currentSlide = 0;
-
-  container.innerHTML = slideshows[id]
-    .map((src, index) => `<img src="${src}" class="slide${index === 0 ? ' is-active' : ''}" />`)
-    .join("");
-
-  document.getElementById("text-container").innerHTML = textPanels[id];
+  showSlide(currentSlide);
 }
 
-// Show next slide
-function showSlide(offset) {
-  const slides = container.querySelectorAll("img");
-  if (!slides.length) return;
-
-  slides[currentSlide].classList.remove("is-active");
-  currentSlide = (currentSlide + offset + slides.length) % slides.length;
-  slides[currentSlide].classList.add("is-active");
-}
-
-// Button clicks to change content
+// Update your portfolio button click handler:
 document.querySelectorAll('.portfolio-btn').forEach(btn => {
   btn.addEventListener('click', function () {
-    renderSlideshow(this.dataset.target);
+    const id = this.dataset.target;
+
+    // update slideshow
+    const container = document.getElementById("slideshow-container");
+    container.innerHTML = slideshows[id]
+      .map((src, index) => `<img src="${src}" class="slide${index === 0 ? ' is-active' : ''}">`)
+      .join("");
+
+    // update text
+    document.getElementById("text-container").innerHTML = textPanels[id];
 
     // Update button styles
     document.querySelectorAll('.portfolio-btn').forEach(b => b.classList.remove('is-active'));
     this.classList.add('is-active');
+
+    // Re-init slideshow for new slides
+    initSlideshow();
   });
 });
 
-// Keyboard accessibility
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') showSlide(1);
-  if (e.key === 'ArrowLeft') showSlide(-1);
+// Arrow event listeners:
+document.querySelector('.slideshow-arrow.prev').addEventListener('click', () => {
+  if (!slides.length) return;
+  const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(newIndex);
 });
 
-// Next/Prev buttons
-document.getElementById('next-slide').addEventListener('click', () => showSlide(1));
-document.getElementById('prev-slide').addEventListener('click', () => showSlide(-1));
+document.querySelector('.slideshow-arrow.next').addEventListener('click', () => {
+  if (!slides.length) return;
+  const newIndex = (currentSlide + 1) % slides.length;
+  showSlide(newIndex);
+});
 
 // Load default section
-renderSlideshow('content');
+
 </script>
 @endsection
 

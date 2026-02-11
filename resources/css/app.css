@@ -400,24 +400,10 @@ header {
     padding: 10px;
 }
 
-/* The slideshow container */
-#slideshow-container {
-    max-width: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 70px;
-    padding-left: 30px;   /* stays for the right shift */
-    height: 300px;   /* adjust based on your images */
-    position: relative;  /* needed for absolutely positioned slides */
 
-
-    /* ⭐ Move the whole image upward */
-    
-}
 /* The images inside the slideshow */
 #slideshow-container .slide {
-    width: 100%;
+    width: 88%;
     height: auto;
     border-radius: 20px;                       /* curved corners */
              
@@ -425,12 +411,12 @@ header {
     object-fit: cover;
     transition: opacity 0.5s ease;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     opacity: 0;
     border: 4px solid #484d5985;   /* border color + thickness */
     border-radius: 20px;         /* keep your rounded corners */
-
+    display: block;           /* remove inline spacing *//* include border in size */
     box-sizing: border-box;      /* prevents border from changing layout */
     z-index: 3
 }
@@ -444,12 +430,18 @@ header {
 
 /* Only the active slide is visible */
 .slide {
-    position: absolute;
-    opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease; /* smooth fade */
 }
 
 .slide.is-active {
-    opacity: 1;
+  opacity: 1;
+  z-index: 2; /* make sure active slide is on top */
 }
 
 
@@ -534,34 +526,61 @@ html, body {
 
 }
 
-.slideshow-controls {
-  position: absolute;      /* position inside the container */
-  margin-bottom: 50px;
-  margin-left: 10px;
-  bottom: 10px;            /* distance from bottom */
-  left: 50%;               /* center horizontally */
-  transform: translateX(-50%);
+.slideshow-wrapper {
+  top: -10px;
+  position: relative;
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+    /* make wrapper take full space */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* ensures padding doesn’t shrink inner slides */
+    padding: 0 3rem;        /* horizontal padding for arrows click space */
 }
 
-.slideshow-controls button {
-  background: transparent;
-  color: black;
+#slideshow-container {
+    width: 100%;
+    height: auto; /* or fixed height if you like */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50px;
+    overflow: hidden;
+}
+
+.slideshow-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; /* semi-transparent */
+  color: #484D59;
+  font-size: 2rem;
+  font-weight: 300;
+  border: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 1rem 1rem;
   cursor: pointer;
-  padding: 0rem 1rem;            /* vertical | horizontal */
-  font-size: 1.5rem;             /* optional: make arrow/text bigger */
-  border: orangered 2px solid;
-  z-index: 20;
+  z-index: 10;
+  transition: background 0.2s ease;
 }
 
-.slideshow-controls button:hover,
-.slideshow-controls button:focus {
-  background: rgba(0,0,0,0.1);
-  outline: none;
+.slideshow-arrow:hover {
+  background: rgba(255, 221, 233, 0.461);
 }
 
+.slideshow-arrow.prev {
+  left: 4.5rem; /* move left outside the slideshow */
+  border-top-left-radius: 110px;
+  border-bottom-left-radius: 110px;
+}
 
+.slideshow-arrow.next {
+  right: -1.7rem; /* move right outside the slideshow */
+  border-top-right-radius: 110px;
+  border-bottom-right-radius: 110px;
+}
 
 
 
